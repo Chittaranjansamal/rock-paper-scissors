@@ -8,6 +8,8 @@
   </head>
   <body>
     <script>
+      let playerScore = 0 ;
+      let computerScore = 0 ;
       computerChoose = () => {
         let randomNum = Math.floor(Math.random() * 3) + 1;
             switch (randomNum) {
@@ -20,32 +22,56 @@
               case 3 :
                 return "scissor"
             }
-      } 
-      let playerSelection = prompt(
-        "Choose one from Rock, Paper, Scissor"
-      ).toLowerCase();
-      let computerSelection = computerChoose();
-       
+      }  
       function playRound(playerSelection, computerSelection) {
-        if (playerSelection == computerSelection) {
-          console.log("It's a tie");
-        } else if (playerSelection == "rock" && computerSelection == "paper") {
+          if (playerSelection == computerSelection) {
+            alert("It's a tie . computer choose " + computerSelection);
+            console.log("It's a tie . computer choose " + computerSelection);
+          } else if (playerSelection == "rock" && computerSelection == "paper") {
+            alert(" Computer win! computer choose " + computerSelection);
+              console.log("Computer win !");
+              computerScore++;
+          } else if (playerSelection == "paper" && computerSelection == "scissor") {
+            alert(" Computer win! computer choose " + computerSelection);
             console.log("Computer win !");
-        } else if (playerSelection == "paper" && computerSelection == "scissor") {
-          console.log("Computer win !");
-        } else if (playerSelection == "scissor" && computerSelection == "rock") {
-          console.log("Computer win !");
-        } else if (playerSelection == "rock" && computerSelection == "scissor") {
-            console.log("You Win !.");
-        } else if (playerSelection == "paper" && computerSelection == "rock") {
-          console.log("You Win !");
-        } else if (playerSelection == "scissor" && computerSelection == "paper") {
-          console.log("You Win !");
+            computerScore++;
+          } else if (playerSelection == "scissor" && computerSelection == "rock") {
+            alert(" Computer win! Computer choose  " + computerSelection);
+            console.log("Computer win !");
+            computerScore++;
+          } else if (playerSelection == "rock" && computerSelection == "scissor") {
+            alert(" you win! computer choose "+ computerSelection);
+              console.log("You Win !");
+              playerScore++;
+          } else if (playerSelection == "paper" && computerSelection == "rock") {
+            alert(" you win! computer choose "+ computerSelection);
+            console.log("You Win !");
+            playerScore++;
+          } else if (playerSelection == "scissor" && computerSelection == "paper") {
+            alert(" you win! computer choose "+ computerSelection);
+            console.log("You Win !");
+            playerScore++;
+          } 
+        }
+        function game() {
+          let playerSelection = prompt(
+          "Choose one from Rock, Paper, Scissor"
+          ).toLowerCase();
+          let computerSelection = computerChoose();
+          playRound(playerSelection, computerSelection);  
+        }
+        for (let i = 0; i < 5; i++) {
+          game();
         } 
-      }
-      console.log(`player choose ${playerSelection}`);
-      console.log(`Computer choose ${computerSelection}`);
-      console.log( playRound(playerSelection, computerSelection));
+        if ( playerScore > computerScore) {
+          alert ("Player win the match with the score " + playerScore + "/" + computerScore + ".")
+          console.log ("Player win the match with the score " + playerScore + "/" + computerScore + ".")
+        } else if (playerScore < computerScore) {
+          alert("computer win the match with score " + computerScore + "/" + playerScore + ".")
+          console.log("computer win the match with score " + computerScore + "/" + playerScore + ".");
+        } else {
+            alert ("It's a tie "  + computerScore + "/" + playerScore + ".");
+        }
     </script>
   </body>
 </html>
