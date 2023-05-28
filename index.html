@@ -66,11 +66,14 @@
         if ( playerScore > computerScore) {
           alert ("Player win the match with the score " + playerScore + "/" + computerScore + ".")
           console.log ("Player win the match with the score " + playerScore + "/" + computerScore + ".")
+          document.write("<h1 style='color:red;align-items: center;'>YOU WIN! </h1>");
         } else if (playerScore < computerScore) {
           alert("computer win the match with score " + computerScore + "/" + playerScore + ".")
           console.log("computer win the match with score " + computerScore + "/" + playerScore + ".");
+          document.write("<h1 style='color:red;align-items: center;'> COMPUTER WIN! </h1>");
         } else {
             alert ("It's a tie "  + computerScore + "/" + playerScore + ".");
+            document.write("<h1 style='color:red;align-items: center;'>TIE! </h1>");
         }
     </script>
   </body>
